@@ -123,21 +123,3 @@
 </script>
 </body>
 </html>
-Let's walk through the two mouse event handlers we added to our code:
-
-g.selectAll(".bar")
-.data(data)
-.enter().append("rect")
-.attr("class", "bar")
-.on("mouseover", onMouseOver)
-.on("mouseout", onMouseOut)
-.attr("x", function(d) { return x(d.year); })
-.attr("y", function(d) { return y(d.value); })
-.attr("width", x.bandwidth())
-.transition()
-.ease(d3.easeLinear)
-.duration(400)
-.delay(function (d, i) {
-    return i * 50;
-})
-.attr("height", function(d) { return height - y(d.value); });
